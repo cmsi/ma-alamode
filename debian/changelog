@@ -1,3 +1,9 @@
+alamode (1.1.0-2) unstable; urgency=low
+
+  * Added missing python scripts
+
+ -- Synge Todo <wistaria@phys.s.u-tokyo.ac.jp>  Mon, 13 May 2019 14:41:09 +0900
+
 alamode (1.1.0-1) unstable; urgency=low
 
   * Initial release for 1.1.0
