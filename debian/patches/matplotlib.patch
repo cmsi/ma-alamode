@@ -1,0 +1,13 @@
+--- a/tools/plotband.py
++++ b/tools/plotband.py
+@@ -14,10 +14,6 @@
+ import numpy as np
+ import optparse
+ import matplotlib as mpl
+-try:
+-    mpl.use("Qt5agg")
+-except:
+-    pass
+ import matplotlib.pyplot as plt
+ 
+ # parser options

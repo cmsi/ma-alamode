@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	(cd alm && make -f Makefile.linux CXX=g++ CXXFLAGS="-g -O3 -fopenmp -std=c++11 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wall -Wno-sign-compare -D_FORTIFY_SOURCE=2" INCLUDE="-I../include -I/usr/include/eigen3" CXXL="g++ -fopenmp" LDFLAGS= LIBS="-lsymspg -llapack")
+	(cd anphon && make -f Makefile.linux CXX=mpicxx CXXFLAGS="-g -O3 -fopenmp -std=c++11 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wall -Wno-sign-compare -D_FORTIFY_SOURCE=2" INCLUDE="-I../include -I/usr/include/eigen3" LINKER="mpicxx -fopenmp" LDFLAGS= LIBS="-lfftw3 -llapack -lblas")
+	(cd tools && make CXX=g++ CXXFLAGS="-g -O3 -std=c++11 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wall -Wno-sign-compare -D_FORTIFY_SOURCE=2" INCLUDE="-I../include")
+
+override_dh_auto_clean:
+	(cd alm && rm -f alm *.o)
+	(cd anphon && rm -f anphon *.o)
+	(cd tools && rm -f analyze_phonons dfc2 qe2alm *.o)
