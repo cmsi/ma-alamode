@@ -1,3 +1,9 @@
+alamode (1.1.0-3) unstable; urgency=low
+
+  * Moved analyzed_photons tool into /usr/share/alamode/tools
+
+ -- Synge Todo <wistaria@phys.s.u-tokyo.ac.jp>  Tue, 14 May 2019 14:26:28 +0900
+
 alamode (1.1.0-2) unstable; urgency=low
 
   * Added missing python scripts
