@@ -1,3 +1,0 @@
-alm/alm anphon/anphon tools/dfc2 tools/qe2alm usr/bin
-tools/analyze_phonons tools/*.py tools/interface usr/share/alamode/tools
-example usr/share/alamode
